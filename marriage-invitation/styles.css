@@ -1,0 +1,437 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dhurjati', sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.main-title,
+.yours {
+    font-weight: normal;
+}
+
+body {
+    font-family: 'Dhurjati', sans-serif;
+    font-size: 19px;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: rgba(255, 255, 255, 0.9);
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+/* Hide elements */
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   Particle Canvas
+========================= */
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999; /* Above background, below text */
+    pointer-events: none;
+}
+
+/* =========================
+   Entrance Overlay
+========================= */
+.entrance-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 998;
+}
+
+/* Glowing Ring */
+.glowing-ring {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, gold, orange);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: glow 2s infinite alternate;
+}
+
+.ring-inner {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #000;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px gold;
+    }
+
+    to {
+        box-shadow: 0 0 40px gold;
+    }
+}
+
+/* Gate Text */
+.gate-content {
+    position: relative;
+    z-index: 1000;
+    text-align: center;
+}
+
+.pulse-text {
+    color: gold;
+    border: 2px solid gold;
+    padding: 10px 40px;
+    border-radius: 30px;
+    background: rgba(255, 215, 0, 0.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* =========================
+   Main Content
+========================= */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1100;
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+}
+
+.main-content.show {
+    opacity: 1;
+}
+
+/* Glass Card */
+.glass-card {
+    width: 100%;
+    max-width: 500px;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    text-align: center;
+}
+
+/* Divider */
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, gold, transparent);
+    margin: 20px 0;
+}
+
+/* =========================
+   Image Frame
+========================= */
+.image-frame {
+    position: relative;
+    display: inline-block;
+}
+
+.couple-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.1) translateY(5%); /* Subtle zoom and shift down for better alignment */
+}
+
+.frame-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 25px gold;
+    animation: glow 2s infinite alternate;
+}
+
+/* =========================
+   Names
+========================= */
+.name-block {
+    color: gold;
+    margin: 5px 0;
+}
+
+.with-text {
+    display: block;
+    margin: 5px 0;
+}
+
+/* =========================
+   Titles & Text
+========================= */
+.main-title {
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.parents-invitation {
+    margin-top: 10px;
+}
+
+.footer-section {
+    margin-top: 10px;
+}
+
+/* =========================
+   Event Cards
+========================= */
+.events-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px gold;
+}
+
+.event-icon {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.event-sub {
+    color: #ccc;
+}
+
+
+/* =========================
+   Audio Button
+========================= */
+.audio-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid gold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1200;
+    transition: all 0.3s ease;
+    color: gold;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.audio-control:hover {
+    background: gold;
+    color: black;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}/* =========================
+   Fade Animation
+========================= */
+.fade-item {
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-item.left {
+    transform: translateX(-50px);
+}
+
+.fade-item.right {
+    transform: translateX(50px);
+}
+
+.fade-item.show {
+    opacity: 1;
+    transform: translateX(0) !important;
+}
+
+.item-1 {
+    animation-delay: 0.3s;
+}
+
+.item-2 {
+    animation-delay: 0.6s;
+}
+
+.item-3 {
+    animation-delay: 0.9s;
+}
+
+.item-4 {
+    animation-delay: 1.2s;
+}
+
+.item-5 {
+    animation-delay: 1.5s;
+}
+
+.item-6 {
+    animation-delay: 1.8s;
+}
+
+.item-7 {
+    animation-delay: 2.1s;
+}
+
+.item-8 {
+    animation-delay: 2.4s;
+}
+
+.flower-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+    border-radius: 50%;
+}
+
+.flower {
+    position: absolute;
+    font-size: 12px;
+    pointer-events: none;
+    animation: flowerRain linear infinite;
+}
+
+@keyframes flowerRain {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(180px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   Responsive Design
+========================= */
+@media (max-width: 600px) {
+    .glass-card {
+        padding: 15px;
+    }
+
+    .couple-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .event-card {
+        padding: 12px;
+    }
+
+    .audio-control {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* =========================
+   Language Toggle & English Fonts
+========================= */
+.lang-btn-center {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid gold;
+    color: gold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: sans-serif !important;
+    font-size: 18px !important;
+    z-index: 1000;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.lang-btn-center:hover {
+    background: gold;
+    color: black;
+    transform: scale(1.05);
+}
+
+body.lang-en * {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+/* Fade out effect for entrance */
+.fade-out {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.fade-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body.lang-en h1,
+body.lang-en h2,
+body.lang-en h3,
+body.lang-en h4,
+body.lang-en h5,
+body.lang-en h6,
+body.lang-en .main-title,
+body.lang-en .name-block,
+body.lang-en .yours,
+body.lang-en .gate-text {
+    font-family: 'Cinzel', serif !important;
+}
+
+body.lang-en .name-block {
+    font-size: 52px;
+    font-weight: 300;
+}
+
+body.lang-en .main-title {
+    font-size: 24px;
+}
