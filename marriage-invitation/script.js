@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle Entry
     enterBtn.addEventListener('click', () => {
-        // Try to play local audio IMMEDIATELY
+        // Try to play local audio IMMEDIATE
         if (bgMusic) {
             bgMusic.play().then(() => {
                 audioPlaying = true;
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             entranceOverlay.style.display = 'none';
             mainContent.classList.remove('hidden');
-            
+
             // Trigger main content fade-in
             setTimeout(() => {
                 mainContent.classList.add('show');
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         entry.target.classList.add('show');
                     }
                 });
-            }, { 
+            }, {
                 threshold: 0.15,
                 rootMargin: "0px 0px -50px 0px" // Trigger slightly before it hits the center
             });
@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 fadeItems.forEach((item, index) => {
                     const rect = item.getBoundingClientRect();
                     const viewHeight = window.innerHeight;
-                    
+
                     // Only move if visible
                     if (rect.top < viewHeight && rect.bottom > 0) {
                         const relativePos = (rect.top + rect.height / 2) / viewHeight;
                         const movement = (relativePos - 0.5) * 40; // Subtle drift
-                        
+
                         if (item.classList.contains('left')) {
                             item.style.transform = `translateX(${movement}px)`;
                         } else if (item.classList.contains('right')) {
@@ -138,11 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
         draw() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            
+
             // Twinkle effect
             const twinkle = Math.sin(Date.now() * 0.005 + this.angle) * 0.5 + 0.5;
             ctx.fillStyle = this.color.replace(/[\d.]+\)$/g, `${twinkle * 0.7 + 0.3})`);
-            
+
             ctx.shadowBlur = this.glow * twinkle;
             ctx.shadowColor = '#D4AF37'; // Gold glow
             ctx.fill();
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const animationEnd = Date.now() + duration;
                         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
                         function randomInRange(min, max) { return Math.random() * (max - min) + min; }
-                        const interval = setInterval(function() {
+                        const interval = setInterval(function () {
                             const timeLeft = animationEnd - Date.now();
                             if (timeLeft <= 0) { return clearInterval(interval); }
                             const particleCount = 50 * (timeLeft / duration);
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
             flower.style.left = Math.random() * 100 + '%';
             flower.style.animationDuration = (Math.random() * 2 + 3) + 's';
             flower.style.fontSize = (Math.random() * 8 + 8) + 'px';
-            
+
             container.appendChild(flower);
 
             // Remove flower after animation
