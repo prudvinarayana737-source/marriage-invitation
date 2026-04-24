@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // Elements
+    const loader = document.getElementById('loader');
     const entranceOverlay = document.getElementById('entranceOverlay');
     const enterBtn = document.getElementById('enterBtn');
     const mainContent = document.getElementById('mainContent');
@@ -8,6 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeItems = document.querySelectorAll('.fade-item');
 
     let audioPlaying = false;
+
+    // Loader Logic
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            if (loader) {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 800);
+            }
+        }, 1000); // Minimum 1s visibility
+    });
 
     // Disable scrolling on initial load
     document.body.style.overflow = 'hidden';
